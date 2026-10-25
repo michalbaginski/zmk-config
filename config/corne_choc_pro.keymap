@@ -15,6 +15,11 @@
     };
 };
 
+// RSE thumb: tap = Enter, hold = SYMBOL. Pressing and releasing another key while held picks the layer right away.
+&lt {
+    flavor = "balanced";
+};
+
 / {
     keymap {
         compatible = "zmk,keymap";
@@ -25,12 +30,12 @@
             // |  TAB |  Q  |  W  |  E  |  R  |  T  |  MUTE |  PP   |  Y  |  U   |  I  |  O  |  P  | BSPC |
             // | CTRL |  A  |  S  |  D  |  F  |  G  |  LALT |  RALT |  H  |  J   |  K  |  L  |  ;  |  '   |
             // | SHFT |  Z  |  X  |  C  |  V  |  B  |               |  N  |  M   |  ,  |  .  |  /  | ESC  |
-            //                    | GUI | LWR | ENT |               | SPC | RSE  | ALT |
+            //                    | GUI | LWR | SPC |               | SPC |RSE/ENT| ALT |
             bindings = <
                 &kp TAB   &kp Q &kp W &kp E &kp R &kp T &kp C_MUTE &kp C_PP &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
                 &kp LCTRL &kp A &kp S &kp D &kp F &kp G &kp LALT   &kp RALT &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
                 &kp LSHFT &kp Z &kp X &kp C &kp V &kp B                     &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp ESC
-                                      &kp LGUI &mo 1 &kp RET                &kp SPACE &mo 2 &kp RALT
+                                      &kp LGUI &mo 1 &kp SPACE              &kp SPACE &lt 2 RET &kp RALT
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN &inc_dec_kp C_PREV C_NEXT &inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
@@ -41,7 +46,7 @@
             // |  TAB |  1  |  2  |  3  |  4  |  5    |  LCTRL | RCTRL |  6  |  7  |  8  |  9  |  0  | BSPC |
             // | CTRL | BT1 | BT2 | BT3 | BT4 | BT5   |  LALT  | RALT  | LFT | DWN |  UP | RGT |     |      |
             // | SHFT | BTCR| RGB | RST | BOOT| Unlock|        |       |     |     |     |     |     |      |
-            //                    | GUI |     | ENT   |        | SPC   |     | ALT |
+            //                    | GUI |     | SPC   |        | SPC   |     | ALT |
             bindings = <
                 &kp TAB   &kp N1       &kp N2          &kp N3       &kp N4       &kp N5       &kp LCTRL &kp RCTRL &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
                 &kp LCTRL &bt BT_SEL 0 &bt BT_SEL 1    &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &kp LALT  &kp RALT  &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
@@ -56,7 +61,7 @@
             // |  TAB |  !  |  @  |  #  |  $  |  %  | LCTRL | RCTRL |  ^  |  &  |  *  |  (  |  )  | BSPC |
             // | CTRL | HUD | HUI |     |     |     |  LALT | RALT  |  -  |  =  |  [  |  ]  |  \  |  `   |
             // | SHFT |     |     |     |     |     |               |  _  |  +  |  {  |  }  | "|" |  ~   |
-            //                    | GUI |     | ENT |               | SPC |     | ALT |
+            //                    | GUI |     | SPC |               | SPC |     | ALT |
             bindings = <
                 &kp  TAB  &kp EXCL        &kp AT          &kp HASH &kp DLLR &kp PRCNT &kp LCTRL &kp RCTRL &kp CARET &kp AMPS  &kp ASTRK &kp LPAR &kp RPAR &kp BSPC
                 &kp LCTRL &rgb_ug RGB_HUD &rgb_ug RGB_HUI &trans   &trans   &trans    &kp LALT  &kp RALT  &kp MINUS &kp EQUAL &kp LBKT  &kp RBKT &kp BSLH &kp GRAVE
