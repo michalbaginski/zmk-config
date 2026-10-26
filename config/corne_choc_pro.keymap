@@ -50,6 +50,17 @@
     };
 };
 
+// SYSTEM layer: hold LWR and RSE together.
+/ {
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        tri_layer {
+            if-layers = <1 2>;
+            then-layer = <3>;
+        };
+    };
+};
+
 / {
     keymap {
         compatible = "zmk,keymap";
@@ -74,13 +85,13 @@
             display-name = "NUMBER";
             // -----------------------------------------------------------------------------------------
             // |  TAB |  1  |  2  |  3  |  4  |  5    |  LCTRL | RCTRL |  6  |  7  |  8  |  9  |  0  | BSPC |
-            // | CTRL | BT1 | BT2 | BT3 | BT4 | BT5   |  LALT  | RALT  | LFT | DWN |  UP | RGT |     |      |
-            // | SHFT | BTCR| RGB | RST | BOOT| Unlock|        |       |     |     |     |     |     |      |
+            // | CTRL |     |     |     |     |       |  LALT  | RALT  | LFT | DWN |  UP | RGT |     |      |
+            // | SHFT |     |     |     |     |       |        |       |     |     |     |     |     |      |
             //                    | GUI |     | SPC   |        | SPC   |     | ALT |
             bindings = <
                 &kp TAB   &kp N1       &kp N2          &kp N3       &kp N4       &kp N5       &kp LCTRL &kp RCTRL &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
-                &kp LCTRL &bt BT_SEL 0 &bt BT_SEL 1    &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &kp LALT  &kp RALT  &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
-                &kp LSHFT &bt BT_CLR   &rgb_ug RGB_TOG &sys_reset   &bootloader  &studio_unlock                   &trans   &trans   &trans &trans    &trans &trans
+                &kp LCTRL &none        &none           &none        &none        &none        &kp LALT  &kp RALT  &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
+                &kp LSHFT &none        &none           &none        &none        &none                            &trans   &trans   &trans &trans    &trans &trans
                                                        &trans       &trans       &trans                           &trans   &trans   &trans
             >;
         };
@@ -100,13 +111,19 @@
             >;
         };
 
-        extra_layer_1 {
-            display-name = "EXTRA 1";
+        system_layer {
+            display-name = "SYSTEM";
+            // Hold LWR and RSE together to get here (see conditional_layers above).
+            // -----------------------------------------------------------------------------------------
+            // |      |     |     |     |     |       |       |       |     |     |     |     |     |      |
+            // |      | BT1 | BT2 | BT3 | BT4 | BT5   |       |       |     |     |     |     |     |      |
+            // |      | BTCR| RGB | RST | BOOT| Unlock|               |     | BOOT| RST |     |     |      |
+            //                    | GUI |     | SPC   |               | SPC |     | ALT |
             bindings = <
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans               &trans &trans &trans &trans &trans &trans
-                                     &trans &trans &trans               &trans &trans &trans       
+                &none &none        &none           &none        &none        &none          &none &none &none &none       &none      &none &none &none
+                &none &bt BT_SEL 0 &bt BT_SEL 1    &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &none &none &none &none       &none      &none &none &none
+                &none &bt BT_CLR   &rgb_ug RGB_TOG &sys_reset   &bootloader  &studio_unlock             &none &bootloader &sys_reset &none &none &none
+                                                   &trans       &trans       &trans                     &trans &trans      &trans
             >;
         };
 
