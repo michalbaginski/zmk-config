@@ -71,12 +71,12 @@
             display-name = "NUMBER";
             // -----------------------------------------------------------------------------------------
             // |  ESC |  1  |  2  |  3  |  4  |  5    |  LCTRL | RCTRL |  6  |  7  |  8  |  9  |  0  | BSPC |
-            // |  TAB |     |     |     |     |       |  LALT  | RALT  | LFT | DWN |  UP | RGT |     |      |
+            // |  TAB | CTL | ALT | GUI | SFT |       |  LALT  | RALT  | LFT | DWN |  UP | RGT |     |      |
             // | SHFT |     |     |     |     |       |        |       |     |     |     |     |     | SHFT |
             //                    | GUI |     | SPC   |        |       |     | ALT |
             bindings = <
                 &trans    &kp N1       &kp N2          &kp N3       &kp N4       &kp N5       &kp LCTRL &kp RCTRL &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
-                &trans    &none        &none           &none        &none        &none        &kp LALT  &kp RALT  &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
+                &trans    &kp LCTRL    &kp LALT        &kp LGUI     &kp LSHFT    &none        &kp LALT  &kp RALT  &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
                 &kp LSHFT &none        &none           &none        &none        &none                            &trans   &trans   &trans &trans    &trans &trans
                                                        &trans       &trans       &trans                           &trans   &trans   &trans
             >;
