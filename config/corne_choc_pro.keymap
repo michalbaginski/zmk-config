@@ -57,12 +57,12 @@
             // |  ESC |  Q  |  W  |  E  |  R  |  T  |  MUTE |  PP   |  Y  |  U   |  I  |  O  |  P  | BSPC |
             // |  TAB |  A  |  S  |  D  |  F  |  G  |  LALT |  RALT |  H  |  J   |  K  |  L  |  ;  |  '   |
             // | SHFT |  Z  |  X  |  C  |  V  |  B  |               |  N  |  M   |  ,  |  .  |  /  | SHFT |
-            //                    | GUI | LWR | SPC |               | SPC |RSE/ENT| ALT |
+            //                    | GUI | LWR | SPC |               |     |RSE/ENT| ALT |
             bindings = <
                 &kp ESC   &kp Q &kp W &kp E &kp R &kp T &kp C_MUTE &kp C_PP &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
                 &kp TAB   &hm LCTRL A &hm LALT S &hm LGUI D &hm LSHFT F &kp G &kp LALT   &kp RALT &kp H &hm RSHFT J &hm RGUI K &hm RALT L &hm RCTRL SEMI &kp SQT
                 &kp LSHFT &kp Z &kp X &kp C &kp V &kp B                     &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp RSHFT
-                                      &kp LGUI &mo 1 &kp SPACE              &kp SPACE &lt 2 RET &kp RALT
+                                      &kp LGUI &mo 1 &kp SPACE              &none     &lt 2 RET &kp RALT
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN &inc_dec_kp C_PREV C_NEXT &inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
@@ -73,7 +73,7 @@
             // |  ESC |  1  |  2  |  3  |  4  |  5    |  LCTRL | RCTRL |  6  |  7  |  8  |  9  |  0  | BSPC |
             // |  TAB |     |     |     |     |       |  LALT  | RALT  | LFT | DWN |  UP | RGT |     |      |
             // | SHFT |     |     |     |     |       |        |       |     |     |     |     |     | SHFT |
-            //                    | GUI |     | SPC   |        | SPC   |     | ALT |
+            //                    | GUI |     | SPC   |        |       |     | ALT |
             bindings = <
                 &trans    &kp N1       &kp N2          &kp N3       &kp N4       &kp N5       &kp LCTRL &kp RCTRL &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
                 &trans    &none        &none           &none        &none        &none        &kp LALT  &kp RALT  &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
@@ -88,7 +88,7 @@
             // |  ESC |  !  |  @  |  #  |  $  |  %  | LCTRL | RCTRL |  ^  |  &  |  *  |  (  |  )  | BSPC |
             // |  TAB | HUD | HUI |     |     |     |  LALT | RALT  |  -  |  =  |  [  |  ]  |  \  |  `   |
             // | SHFT |     |     |     |     |     |               |  _  |  +  |  {  |  }  | "|" |  ~   |
-            //                    | GUI |     | SPC |               | SPC |     | ALT |
+            //                    | GUI |     | SPC |               |     |     | ALT |
             bindings = <
                 &trans    &kp EXCL        &kp AT          &kp HASH &kp DLLR &kp PRCNT &kp LCTRL &kp RCTRL &kp CARET &kp AMPS  &kp ASTRK &kp LPAR &kp RPAR &kp BSPC
                 &trans    &rgb_ug RGB_HUD &rgb_ug RGB_HUI &trans   &trans   &trans    &kp LALT  &kp RALT  &kp MINUS &kp EQUAL &kp LBKT  &kp RBKT &kp BSLH &kp GRAVE
@@ -104,7 +104,7 @@
             // |      |     |     |     |     |       |       |       |     |     |     |     |     |      |
             // |      | BT1 | BT2 | BT3 | BT4 | BT5   |       |       |     |     |     |     |     |      |
             // |      | BTCR| RGB | RST | BOOT| Unlock|               |     | BOOT| RST |     |     |      |
-            //                    | GUI |     | SPC   |               | SPC |     | ALT |
+            //                    | GUI |     | SPC   |               |     |     | ALT |
             bindings = <
                 &none &none        &none           &none        &none        &none          &none &none &none &none       &none      &none &none &none
                 &none &bt BT_SEL 0 &bt BT_SEL 1    &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &none &none &none &none       &none      &none &none &none
