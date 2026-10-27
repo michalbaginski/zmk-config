@@ -86,12 +86,12 @@
             display-name = "SYMBOL";
             // -----------------------------------------------------------------------------------------
             // |  ESC |  !  |  @  |  #  |  $  |  %  | LCTRL | RCTRL |  ^  |  &  |  *  |  (  |  )  | BSPC |
-            // |  TAB | HUD | HUI |     |     |     |  LALT | RALT  |  -  |  =  |  [  |  ]  |  \  |  `   |
+            // |  TAB |     |     |     |     |     |  LALT | RALT  |  -  |  =  |  [  |  ]  |  \  |  `   |
             // | SHFT |     |     |     |     |     |               |  _  |  +  |  {  |  }  | "|" |  ~   |
             //                    | GUI |     | SPC |               |     |     | ALT |
             bindings = <
                 &trans    &kp EXCL        &kp AT          &kp HASH &kp DLLR &kp PRCNT &kp LCTRL &kp RCTRL &kp CARET &kp AMPS  &kp ASTRK &kp LPAR &kp RPAR &kp BSPC
-                &trans    &rgb_ug RGB_HUD &rgb_ug RGB_HUI &trans   &trans   &trans    &kp LALT  &kp RALT  &kp MINUS &kp EQUAL &kp LBKT  &kp RBKT &kp BSLH &kp GRAVE
+                &trans    &trans          &trans          &trans   &trans   &trans    &kp LALT  &kp RALT  &kp MINUS &kp EQUAL &kp LBKT  &kp RBKT &kp BSLH &kp GRAVE
                 &kp LSHFT &trans          &trans          &trans   &trans   &trans                        &kp UNDER &kp PLUS  &kp LBRC  &kp RBRC &kp PIPE &kp TILDE
                                                           &trans   &trans   &trans                        &trans    &trans    &trans
             >;
@@ -101,15 +101,15 @@
             display-name = "SYSTEM";
             // Hold LWR and RSE together to get here (see conditional_layers above).
             // -----------------------------------------------------------------------------------------
-            // |      |     |     |     |     |       |       |       |     |     |     |     |     |      |
+            // |      | HUD | HUI |     |     |       |       |       |     |     |     |     |     |      |
             // |      | BT1 | BT2 | BT3 | BT4 | BT5   |       |       |     |     |     |     |     |      |
             // |      | BTCR| RGB | RST | BOOT| Unlock|               |     | BOOT| RST |     |     |      |
             //                    | GUI |     | SPC   |               |     |     | ALT |
             bindings = <
-                &none &none        &none           &none        &none        &none          &none &none &none &none       &none      &none &none &none
-                &none &bt BT_SEL 0 &bt BT_SEL 1    &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &none &none &none &none       &none      &none &none &none
-                &none &bt BT_CLR   &rgb_ug RGB_TOG &sys_reset   &bootloader  &studio_unlock             &none &bootloader &sys_reset &none &none &none
-                                                   &trans       &trans       &trans                     &trans &trans      &trans
+                &none &rgb_ug RGB_HUD &rgb_ug RGB_HUI &none        &none        &none          &none &none &none &none       &none      &none &none &none
+                &none &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &none &none &none &none       &none      &none &none &none
+                &none &bt BT_CLR      &rgb_ug RGB_TOG &sys_reset   &bootloader  &studio_unlock             &none &bootloader &sys_reset &none &none &none
+                                                      &trans       &trans       &trans                     &trans &trans      &trans
             >;
         };
 
